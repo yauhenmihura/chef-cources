@@ -1,0 +1,134 @@
+192.168.33.13 -----> Existing Chef installation detected
+192.168.33.13 Starting the first Chef Client run...
+192.168.33.13 Starting Chef Client, version 12.13.37[0m
+192.168.33.13 resolving cookbooks for run list: ["jboss"][0m
+192.168.33.13 Synchronizing Cookbooks:[0m
+192.168.33.13   - jboss (2.1.1)[0m
+192.168.33.13   - apt (4.0.1)[0m
+192.168.33.13   - java (1.42.0)[0m
+192.168.33.13   - compat_resource (12.10.7)[0m
+192.168.33.13   - windows (2.0.2)[0m
+192.168.33.13   - homebrew (2.1.2)[0m
+192.168.33.13   - build-essential (6.0.4)[0m
+192.168.33.13   - seven_zip (2.0.2)[0m
+192.168.33.13   - mingw (1.2.4)[0m
+192.168.33.13 Installing Cookbook Gems:[0m
+192.168.33.13 Compiling Cookbooks...[0m
+192.168.33.13 [2016-09-15T20:44:46+01:00] WARN: Chef::Provider::AptRepository already exists!  Cannot create deprecation class for LWRP provider apt_repository from cookbook apt
+192.168.33.13 [2016-09-15T20:44:46+01:00] WARN: AptRepository already exists!  Deprecation class overwrites Custom resource apt_repository from cookbook apt
+192.168.33.13 Converging 18 resources[0m
+192.168.33.13 Recipe: java::notify[0m
+192.168.33.13   * log[jdk-version-changed] action nothing (skipped due to action :nothing)
+192.168.33.13 Recipe: java::openjdk[0m
+192.168.33.13   * yum_package[java-1.6.0-openjdk] action install
+192.168.33.13     [32m- install version 1.6.0.40-1.13.12.6.el6_8 of package java-1.6.0-openjdk[0m
+192.168.33.13 [0mRecipe: java::notify[0m
+192.168.33.13   * log[jdk-version-changed] action write
+192.168.33.13   
+192.168.33.13 [0mRecipe: java::openjdk[0m
+192.168.33.13   * yum_package[java-1.6.0-openjdk-devel] action install
+192.168.33.13     [32m- install version 1.6.0.40-1.13.12.6.el6_8 of package java-1.6.0-openjdk-devel[0m
+192.168.33.13 [0mRecipe: java::notify[0m
+192.168.33.13   * log[jdk-version-changed] action write
+192.168.33.13   
+192.168.33.13 [0mRecipe: java::openjdk[0m
+192.168.33.13   * java_alternatives[set-java-alternatives] action set (up to date)
+192.168.33.13 Recipe: java::set_java_home[0m
+192.168.33.13   * ruby_block[set-env-java-home] action run (skipped due to not_if)
+192.168.33.13   * directory[/etc/profile.d] action create (up to date)
+192.168.33.13   * template[/etc/profile.d/jdk.sh] action create (up to date)
+192.168.33.13 Recipe: jboss::default[0m
+192.168.33.13   * yum_package[unzip] action install
+192.168.33.13     [32m- install version 6.0-4.el6 of package unzip[0m
+192.168.33.13 [0m  * user[jboss] action create (up to date)
+192.168.33.13   * group[jboss] action create (up to date)
+192.168.33.13   * remote_file[/opt/jboss-as-distribution-6.1.0.Final.zip] action create
+192.168.33.13     [32m- create new file /opt/jboss-as-distribution-6.1.0.Final.zip[0m
+192.168.33.13     [32m- update content in file /opt/jboss-as-distribution-6.1.0.Final.zip from none to 3426fd[0m
+192.168.33.13     [37m(file sizes exceed 10000000 bytes, diff output suppressed)[0m
+192.168.33.13     [32m- change mode from '' to '0755'[0m
+192.168.33.13     [32m- change owner from '' to 'root'[0m
+192.168.33.13     [32m- change group from '' to 'root'[0m
+192.168.33.13 [0m  * execute[jboss_unzip] action run
+192.168.33.13     [32m- execute unzip -o /opt/jboss-as-distribution-6.1.0.Final.zip -d /opt[0m
+192.168.33.13 [0m  * remote_file[/tmp/hudson.zip] action create
+192.168.33.13     [32m- create new file /tmp/hudson.zip[0m
+192.168.33.13     [32m- update content in file /tmp/hudson.zip from none to b54a7a[0m
+192.168.33.13     [37m(file sizes exceed 10000000 bytes, diff output suppressed)[0m
+192.168.33.13     [32m- change mode from '' to '0755'[0m
+192.168.33.13     [32m- change owner from '' to 'root'[0m
+192.168.33.13     [32m- change group from '' to 'root'[0m
+192.168.33.13 [0m  * execute[app_deploy] action run
+192.168.33.13     [32m- execute unzip -o /tmp/hudson.zip -d /opt/jboss-6.1.0.Final/server/default/deploy[0m
+192.168.33.13 [0m  * template[/opt/jboss-6.1.0.Final/server/default/deploy/hudson/hudson.xml] action create
+192.168.33.13     [32m- update content in file /opt/jboss-6.1.0.Final/server/default/deploy/hudson/hudson.xml from 0bed72 to 506129[0m
+192.168.33.13     [37m--- /opt/jboss-6.1.0.Final/server/default/deploy/hudson/hudson.xml	2014-01-16 15:35:44.000000000 +0000[0m
+192.168.33.13     [37m+++ /opt/jboss-6.1.0.Final/server/default/deploy/hudson/.chef-hudson.xml20160915-27083-1oajoom	2016-09-15 20:46:13.898112026 +0100[0m
+192.168.33.13     [37m@@ -12,13 +12,10 @@[0m
+192.168.33.13     [37m  <services>[0m
+192.168.33.13     [37m     <framework>[0m
+192.168.33.13     [37m       <type>Java EE</type>[0m
+192.168.33.13     [37m-       <engine>Tomcat-7.0.12</engine>[0m
+192.168.33.13     [37m+       <engine>jboss-6.1.0.Final</engine>[0m
+192.168.33.13     [37m       <no-of-nodes>1</no-of-nodes>[0m
+192.168.33.13     [37m       <max-nodes>2</max-nodes>[0m
+192.168.33.13     [37m     </framework>[0m
+192.168.33.13     [37m-    <elastic-load-balancer>[0m
+192.168.33.13     [37m-      <engine>Nginx-1.2</engine>[0m
+192.168.33.13     [37m-    </elastic-load-balancer>[0m
+192.168.33.13     [37m   </services>[0m
+192.168.33.13     [37m </cumulogic-app>[0m
+192.168.33.13     [32m- change mode from '0644' to '0755'[0m
+192.168.33.13     [32m- change owner from 'root' to 'jboss'[0m
+192.168.33.13     [32m- change group from 'root' to 'jboss'[0m
+192.168.33.13 [0m  * execute[jboss_chown] action run
+192.168.33.13     [32m- execute chown -R jboss:jboss /opt/jboss-6.1.0.Final[0m
+192.168.33.13 [0m  * template[/etc/init.d/jboss] action create
+192.168.33.13     [32m- create new file /etc/init.d/jboss[0m
+192.168.33.13     [32m- update content in file /etc/init.d/jboss from none to d3b2be[0m
+192.168.33.13     [37m--- /etc/init.d/jboss	2016-09-15 20:46:13.957112026 +0100[0m
+192.168.33.13     [37m+++ /etc/init.d/.chef-jboss20160915-27083-1rua7ph	2016-09-15 20:46:13.957112026 +0100[0m
+192.168.33.13     [37m@@ -1 +1,34 @@[0m
+192.168.33.13     [37m+#!/bin/bash[0m
+192.168.33.13     [37m+# chkconfig: 2345 95 05[0m
+192.168.33.13     [37m+[0m
+192.168.33.13     [37m+start(){[0m
+192.168.33.13     [37m+        echo "JBOSS starting"[0m
+192.168.33.13     [37m+        su -l jboss -c 'nohup /opt/jboss-6.1.0.Final/bin/run.sh &>> /opt/jboss-6.1.0.Final/mainlog&[0m
+192.168.33.13     [37m+echo $! > /opt/jboss-6.1.0.Final/pid'[0m
+192.168.33.13     [37m+}[0m
+192.168.33.13     [37m+stop(){[0m
+192.168.33.13     [37m+       echo "JBOSS stopping"[0m
+192.168.33.13     [37m+       pkill -9 -P $(cat /opt/jboss-6.1.0.Final/pid) &>> /opt/jboss-6.1.0.Final/mainlog&[0m
+192.168.33.13     [37m+}[0m
+192.168.33.13     [37m+[0m
+192.168.33.13     [37m+restart(){[0m
+192.168.33.13     [37m+        stop[0m
+192.168.33.13     [37m+        sleep 5[0m
+192.168.33.13     [37m+        start[0m
+192.168.33.13     [37m+}[0m
+192.168.33.13     [37m+case "$1" in[0m
+192.168.33.13     [37m+  start)[0m
+192.168.33.13     [37m+        start[0m
+192.168.33.13     [37m+        ;;[0m
+192.168.33.13     [37m+  stop)[0m
+192.168.33.13     [37m+        stop[0m
+192.168.33.13     [37m+        ;;[0m
+192.168.33.13     [37m+  restart)[0m
+192.168.33.13     [37m+        restart[0m
+192.168.33.13     [37m+        ;;[0m
+192.168.33.13     [37m+  *)[0m
+192.168.33.13     [37m+        echo "Usage: jboss {start|stop|restart}"[0m
+192.168.33.13     [37m+exit 1[0m
+192.168.33.13     [37m+esac[0m
+192.168.33.13     [37m+exit[0m
+192.168.33.13     [32m- change mode from '' to '0775'[0m
+192.168.33.13     [32m- change owner from '' to 'root'[0m
+192.168.33.13     [32m- change group from '' to 'root'[0m
+192.168.33.13 [0m  * service[jboss] action enable (up to date)
+192.168.33.13   * service[jboss] action start
+192.168.33.13     [32m- start service service[jboss][0m
+192.168.33.13 [0m[0m
+192.168.33.13 Running handlers:[0m
+192.168.33.13 Running handlers complete
+192.168.33.13 [0mChef Client finished, 13/21 resources updated in 01 minutes 33 seconds[0m
