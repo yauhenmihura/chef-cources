@@ -1,0 +1,15 @@
+default['jboss6']['version'] = "6.1.0"
+default['jboss6']['install_path'] = '/opt'
+default['jboss6']['st_app'] = '/tmp'
+default['jboss6']['jboss_path'] = '/opt/jboss-6.1.0.Final'
+default['jboss6']['jboss_home'] = "#{node['jboss6']['[install_path']}/#{node['jboss6']['symlink']}"
+default['jboss6']['config_dir'] = '/etc/jboss-as'
+default['jboss6']['jb_name'] = 'jboss-as-distribution-6.1.0.Final.zip'
+default['jboss6']['jb_folder'] = 'jboss-6.1.0.Final'
+default['jboss6']['app_name'] = 'testweb.zip'
+default['jboss6']['package_url'] = 'http://download.jboss.org/jbossas/6.1/jboss-as-distribution-6.1.0.Final.zip'
+default['jboss6']['app_url'] = 'http://www.cumulogic.com/download/Apps/testweb.zip'
+default['jboss6']['log_dir'] = '/var/log/jboss'
+default['jboss6']['jboss_user'] = 'jboss'
+default['jboss6']['jboss_group'] = 'jboss'
+default['jboss6']['app_folder'] = 'testweb'
