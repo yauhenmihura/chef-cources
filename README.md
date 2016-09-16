@@ -1,6 +1,5 @@
 # Task8 by Yauhen Mihura
 
-<h3>Result</h3>
 * <h3>Created environments (chef-dev)</h3>
 ![imgs](pic/env.png "imgs")
 
