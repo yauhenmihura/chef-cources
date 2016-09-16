@@ -1,0 +1,6 @@
+{
+  "name": "jboss",
+  "run_list": [
+    "recipe[jboss]"
+  ]
+}
