@@ -12,7 +12,7 @@
 
 For upload and start i used next commands:
 * knife upload cookbooks
-* knife bootstrap 192.168.33.13 -x root -P vagrant -r 'role[jboss]' -N mihura -E chef-dev
+* knife bootstrap 192.168.33.13 -x root -P vagrant -r 'role[jboss]' -N mig -E chef-dev
 
 
 <h3>Result after start</h3>
