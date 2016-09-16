@@ -1,0 +1,14 @@
+{
+  "name": "chef-dev",
+  "default_attributes": {
+    "jboss6": {
+      "app_url": "http://www.cumulogic.com/download/Apps/hudson.zip",
+      "app_name": "hudson.zip",
+      "app_folder": "hudson"
+    },
+    "web_server_type": {
+      "apache": "Apache_web_server",
+      "nginx": "Nginx_web_server"
+    }
+  }
+}
