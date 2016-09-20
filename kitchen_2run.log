@@ -1,0 +1,33 @@
+-----> Starting Kitchen (v1.13.0)
+-----> Verifying <default-sbeliakou-centos-67-x86-64>...
+       Preparing files for transfer
+-----> Busser installation detected (busser)
+       Installing Busser plugins: busser-serverspec
+       Plugin serverspec already installed
+       Removing /tmp/verifier/suites/serverspec
+       Transferring files to <default-sbeliakou-centos-67-x86-64>
+-----> Running serverspec test suite
+       /opt/chef/embedded/bin/ruby -I/tmp/verifier/suites/serverspec -I/tmp/verifier/gems/gems/rspec-support-3.5.0/lib:/tmp/verifier/gems/gems/rspec-core-3.5.3/lib /opt/chef/embedded/bin/rspec --pattern /tmp/verifier/suites/serverspec/\*\*/\*_spec.rb --color --format documentation --default-path /tmp/verifier/suites/serverspec
+       
+       Jenkins port is listenning
+       [32m  Port is listenning 200 OK[0m
+       
+       Process "jenkins"
+         count
+       [32m    should eq 1[0m
+       
+       Port "22"
+       [32m  should be listening[0m
+       
+       Finished in 0.08003 seconds (files took 0.27931 seconds to load)
+       [32m3 examples, 0 failures[0m
+       
+       Finished verifying <default-sbeliakou-centos-67-x86-64> (0m3.43s).
+-----> Kitchen is finished. (0m3.83s)
+#
+#
+#
+# I have error with count of jenkins processes in first log, because jenkins start building jobs and create process for it*
+#
+#
+#

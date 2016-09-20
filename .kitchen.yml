@@ -1,0 +1,21 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: sbeliakou/centos-6.7-x86_64
+    vagrantfiles:
+      - vagrant.rb
+suites:
+  - name: default
+    run_list: [
+     'recipe[java]',
+     'recipe[nginx]',
+     'recipe[tomcat]',
+     'recipe[jenkins]'
+    ]
+    attributes:
+
