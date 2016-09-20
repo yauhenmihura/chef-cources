@@ -1,4 +1,7 @@
 # chef-exittask
+
+<h3>Installing java, nginx(8080), tomcat(8082), jenkins(8081)</h3>
+
 <h3>For run with Chefserver use:</h3>
 
 knife bootstrap 192.168.33.13 -x root -P vagrant -r 'role[start]' -N michura
